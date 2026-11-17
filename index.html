@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Демонстрация работы с формами и валидацией данных">
+    <title>Регистрация — WebLab</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a class="logo" href="#">WebLab</a>
+
+            <nav class="navigation" aria-label="Основная навигация">
+                <a href="#home">Главная</a>
+                <a href="#about">О проекте</a>
+            </nav>
+
+            <button class="button button--primary" id="open-dialog" type="button">
+                Регистрация
+            </button>
+        </div>
+    </header>
+
+    <main class="main" id="home">
+        <section class="hero container" id="about">
+            <h1>Добро пожаловать!</h1>
+            <p>
+                Демонстрационный проект для изучения форм,
+                событий и проверки пользовательских данных.
+            </p>
+
+            <button class="button button--primary" id="hero-register" type="button">
+                Создать аккаунт
+            </button>
+        </section>
+    </main>
+
+    <dialog class="dialog" id="registration-dialog">
+        <div class="dialog__header">
+            <h2>Регистрация</h2>
+
+            <button
+                class="dialog__close"
+                id="close-dialog"
+                type="button"
+                aria-label="Закрыть окно"
+            >
+                &times;
+            </button>
+        </div>
+
+        <form class="form" id="registration-form" novalidate>
+            <div class="form__group">
+                <label for="name">Имя (обязательно для заполнения)</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Введите ваше имя"
+                    required
+                    autocomplete="name"
+                    aria-describedby="name-error"
+                >
+                <span class="form__error" id="name-error" aria-live="polite" hidden></span>
+            </div>
+
+            <div class="form__group">
+                <label for="email">Электронная почта (обязательно для заполнения)</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@mail.com"
+                    required
+                    autocomplete="email"
+                    aria-describedby="email-error"
+                >
+                <span class="form__error" id="email-error" aria-live="polite" hidden></span>
+            </div>
+
+            <div class="form__group">
+                <label for="password">Пароль (обязательно для заполнения)</label>
+
+                <div class="password-wrapper">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Минимум 6 символов"
+                        required
+                        minlength="6"
+                        autocomplete="new-password"
+                        aria-describedby="password-error"
+                    >
+
+                    <button
+                        class="button button--secondary"
+                        id="toggle-password"
+                        type="button"
+                        aria-label="Показать пароль"
+                    >
+                        Показать
+                    </button>
+                </div>
+
+                <span class="form__error" id="password-error" aria-live="polite" hidden></span>
+            </div>
+
+            <button class="button button--primary form__submit" type="submit">
+                Зарегистрироваться
+            </button>
+        </form>
+    </dialog>
+</body>
+</html>
